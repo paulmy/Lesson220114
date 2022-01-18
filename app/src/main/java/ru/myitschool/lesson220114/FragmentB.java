@@ -10,23 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentA extends Fragment {
+public class FragmentB extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_a, container, false);
+        return inflater.inflate(R.layout.fragment_b,container,false);
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getParentFragmentManager().setFragmentResultListener("MY_KEY", this, (requestKey, result) -> {
-            setMessage(result.getString("value"));
-        });
-    }
-
     public void setMessage(String item) {
-        TextView textView = getView().findViewById(R.id.textfragment_a);
+        TextView textView = getView().findViewById(R.id.textfragment_b);
         textView.setText(item);
     }
 }
